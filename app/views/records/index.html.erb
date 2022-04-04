@@ -1,0 +1,32 @@
+<div class="records-index-container">
+
+  <div class="title-container box-shadow-3d">
+    <h1>Find a record</h1>
+  </div>
+
+  <div class="search-container box-shadow-3d">
+    <%= form_tag records_path, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a record"
+      %>
+      <%= submit_tag "Search", class: "btn btn-dark" %>
+    <% end %>
+  </div>
+
+  <div class="records-index-cards-container">
+    <% @records.each do |record| %>
+      <%= link_to record_path(record) do %>
+        <div class="record-card box-shadow-3d">
+          <%= image_tag record.image, class: "record-index" %>
+          <div class="record-card-info">
+            <span><h5><%= record.title %></h5></span>
+            <span><p><%= record.year %></p></span> 
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

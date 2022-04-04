@@ -1,0 +1,37 @@
+<div class="box-show-container">
+
+  <div class="box-index-header-container">
+    <%= link_to(edit_box_path(@box), class: 'button button--pandora trial') do %>
+      <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+    <% end %>
+    <div class="title-container box-shadow-3d">
+      <h1><%= @box.name %></h1>
+    </div>
+    <%= link_to(records_path, class: 'button button--pandora trial') do %>
+      <span><i class="fa fa-plus" aria-hidden="true"></i></span>
+    <% end %>
+  </div>
+
+  <div class="box-show-comment box-shadow-3d">
+    <p>
+      <strong>About:</strong><br>
+      <%= @box.comment %>
+    </p>
+  </div>
+
+  <div class="box-index-cards-container mt-3">
+    <% @tags.each do |tag| %>
+      <%= link_to record_path(tag.record) do %>
+        <div class="record-card box-shadow-3d">
+              <%= image_tag tag.record.image, class: "record-index" %>
+          <div class="record-card-info">
+              <span><h5><%= tag.record.title %></h5></span>
+              <%= link_to tag_path(tag, box_id: @box.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+               <span><i class="fa fa-trash" aria-hidden="true"></i></span> 
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

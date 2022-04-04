@@ -1,0 +1,41 @@
+// Specific CSS for your home-page
+
+.home-container{
+  margin-top: -20vh;
+}
+.home-hero {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-hero img {
+  width: 60vw;
+  height: 60vh;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.home-buttons-container {
+  margin: -20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home-buttons {
+  width: 30vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home-text {
+  padding-top: 3rem;
+  padding-bottom: 8rem;
+  margin: auto;
+  width: 60vw;
+}

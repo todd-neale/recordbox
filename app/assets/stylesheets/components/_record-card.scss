@@ -1,0 +1,23 @@
+.record-card {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border: 1px solid #000;
+  margin: 0.75rem 0;
+  width: 60vw;
+  img {
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
+  }
+}
+
+.record-card-info {
+  padding: 0 2rem;
+  color: #000;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;  
+}

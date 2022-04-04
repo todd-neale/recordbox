@@ -1,0 +1,103 @@
+<!-- <%= link_to 'Back', records_path %> -->
+
+<div class="record-show-container text-center">
+  <div class="record-show-top">
+    <div class="record-show-top-left">
+      <% if @prev_record != nil %>
+        <%= link_to(record_path(@prev_record), class: 'button button--pandora trial') do %>
+          <span>Previous Record</span>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="record-show-image-container">
+      <%= link_to(records_path, class: 'button button--pandora trial') do %>
+        <span><i class="fa fa-step-backward" aria-hidden="true"></i></span>
+      <% end %>
+      <%= image_tag @record.image, class: "record-show-image" %>
+      <a type="button" class="button button--pandora trial" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <span><i class="fa fa-archive" aria-hidden="true"></i></span>
+      </a>
+    </div>
+    <div class="record-show-top-right">
+      <% if @next_record != nil %>
+        <%= link_to(record_path(@next_record), class: 'button button--pandora trial') do %>
+          <span>Next Record</span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+    <h3 class="record-show-title box-shadow-3d mt-3">
+      <%= @record.title %>
+    </h3>
+
+    <!-- <%# <p>
+      <strong>Artist:</strong>
+      <%= @record.artist %>
+    </p> %> -->
+
+  <div class="record-show-infos box-shadow-3d">
+    <p>
+      <strong>Release:</strong>
+      <%= @record.year %>
+    </p>
+
+    <p>
+      <strong>Label:</strong>
+      <%= @record.label %>
+    </p>
+    <HR>
+
+    <h5><strong>Tracklist</strong></h5>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Artist</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @tracks.each do |track| %>
+            <td><%= track.position %></td>
+            <td><%= track.title %></td>
+            <td><% @artists.each do |artist| %>
+              <% if artist.id == track.artist_id %>
+                <%= artist.name %>
+              <% end %>
+            <% end %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="record-show-comment box-shadow-3d">
+    <p>
+      <strong>Comments:</strong>
+      <%= @record.comment %>
+    </p>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Select a box</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @tag do |f| %>
+          <%= f.association :box %>
+          <%= f.hidden_field :record_id, value: @record.id %>
+
+          <%= f.button :submit, value: "Add" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

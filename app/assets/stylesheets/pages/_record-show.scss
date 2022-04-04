@@ -1,0 +1,55 @@
+.record-show-container img {
+  height: 18rem;
+  margin: 0 4rem 0 4rem;
+}
+
+.record-show-container {
+  margin-top: -20vh; 
+  margin-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.record-show-image-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.record-show-infos {
+  margin-top: 1rem;
+  background-color: white;
+  border: 1px solid black;
+  width: 60vw;
+  padding: 1rem 3rem;
+  text-align: left;
+}
+.record-show-title {
+  background-color: white;
+  border: 1px solid black;
+  padding: 1rem 3rem;
+}
+
+.record-show-comment {
+  margin-top: 2rem;
+  background-color: white;
+  border: 1px solid black;
+  width: 40vw;
+  padding: 1rem 3rem;
+  text-align: left;
+}
+
+table {
+  width:100%;
+}
+
+.record-show-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}

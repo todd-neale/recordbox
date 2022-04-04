@@ -1,0 +1,26 @@
+<div class="box-index-container">
+
+  <div class="box-index-header-container">
+    <%= link_to(records_path, class: 'button button--pandora trial') do %>
+      <span><i class="fa fa-step-backward" aria-hidden="true"></i></span>
+    <% end %>
+    <div class="title-container box-shadow-3d">
+      <h1>Boxes</h1>
+    </div>
+    <%= link_to(new_box_path, class: 'button button--pandora trial') do %>
+      <span><i class="fa fa-plus" aria-hidden="true"></i></span>
+    <% end %>
+  </div>
+
+
+  <div class="box-card-grid">
+    <% @boxes.each do |box| %>
+      <div class="box-card box-shadow-3d">
+        <%= image_tag('box-placeholder.jpeg') %>
+        <div class="box-card-info">
+          <%= link_to box.name, box %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

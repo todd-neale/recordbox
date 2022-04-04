@@ -1,0 +1,36 @@
+<div class="home-container">
+  <div class="home-hero">
+    <%= image_tag('records-home.jpeg') %>
+  </div>
+  <div class="home-buttons-container">
+    <% if user_signed_in? %>
+      <div class="home-buttons">
+        <%= link_to(records_path, class: 'button button--pandora trial') do %>
+          <span>View Records</span>
+        <% end %>
+        <%= link_to(boxes_path, class: 'button button--pandora trial') do %>
+          <span>View Boxes</span>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="home-buttons">
+        <%= link_to(new_user_registration_path, class: 'button button--pandora trial') do %>
+          <span>Sign Up</span>
+        <% end %>
+        <%= link_to(new_user_session_path, class: 'button button--pandora trial') do %>
+          <span>Sign In</span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="home-text">
+  <h3>Welcome to your Record box</h3>
+  <p class="mt-2">
+    Record box is a place to store your music and keep track of your records.
+    You can add your records to your box, and keep track of them.
+    You can sort your collection by bpm, key and genre.
+    <br><br>
+    lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, urna eu consectetur consectetur, nisl nisl congue nunc, euismod euismod nisi nisl euismod nunc.
+  </p>
+  </div>
+</div>

@@ -18,7 +18,7 @@
       <div class="box-card box-shadow-3d">
         <%= image_tag('box-placeholder.jpeg') %>
         <div class="box-card-info">
-          <%= link_to box.name, box %>
+          <%= link_to box.name, box_path(current_user.id, box) %>
         </div>
       </div>
     <% end %>

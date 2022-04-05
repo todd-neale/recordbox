@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 .home-container{
-  margin-top: -20vh;
+  margin-top: -25vh;
 }
 .home-hero {
   margin-top: 2rem;
@@ -38,4 +38,10 @@
   padding-bottom: 8rem;
   margin: auto;
   width: 60vw;
+}
+
+.label-logo {
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto;
 }

@@ -8,7 +8,7 @@
         <%= link_to(records_path, class: 'button button--pandora trial') do %>
           <span>View Records</span>
         <% end %>
-        <%= link_to(boxes_path, class: 'button button--pandora trial') do %>
+        <%= link_to(boxes_path(current_user.id), class: 'button button--pandora trial') do %>
           <span>View Boxes</span>
         <% end %>
       </div>
@@ -23,14 +23,12 @@
       </div>
     <% end %>
   </div>
-  <div class="home-text">
+  <div class="home-text d-flex flex-column align-items-center">
   <h3>Welcome to your Record box</h3>
   <p class="mt-2">
     Record box is a place to store your music and keep track of your records.
     You can add your records to your box, and keep track of them.
-    You can sort your collection by bpm, key and genre.
-    <br><br>
-    lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, urna eu consectetur consectetur, nisl nisl congue nunc, euismod euismod nisi nisl euismod nunc.
   </p>
+  <%= image_tag('gieglinglogo.png', class: "label-logo") %>
   </div>
 </div>

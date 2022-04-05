@@ -4,7 +4,7 @@ class BoxesController < ApplicationController
 
   # GET /boxes or /boxes.json
   def index
-    @boxes = Box.all
+    @boxes = Box.where(user_id: current_user.id)
   end
 
   # GET /boxes/1 or /boxes/1.json
@@ -28,7 +28,7 @@ class BoxesController < ApplicationController
 
     respond_to do |format|
       if @box.save
-        format.html { redirect_to box_url(@box), notice: "Hurray Box Created!!" }
+        format.html { redirect_to box_path @box, notice: "Hurray Box Created!!" }
         format.json { render :show, status: :created, location: @box }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -68,6 +68,6 @@ class BoxesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def box_params
-      params.require(:box).permit(:name, :comment, :user_id)
+      params.require(:box).permit(:name, :comment)
     end
 end

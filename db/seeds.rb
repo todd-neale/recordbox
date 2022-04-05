@@ -1,7 +1,6 @@
 require 'open-uri'
 require 'json'
 
-user = User.create(email: 'todd@test.com', encrypted_password: 'password')
 Box.destroy_all
 puts "Destroying boxes..."
 Track.destroy_all
@@ -11,9 +10,13 @@ puts "Destroying records..."
 Artist.destroy_all
 puts "Destroying artists..."
 
+consumer_key = ENV['CONSUMER_KEY']
+consumer_secret = ENV['CONSUMER_SECRET']
 
 # get records from api
-url = "https://api.discogs.com/database/search?label=giegling&key=LFIFCjBkfZahmqLHJJVY&secret=vdVkxRrrDIIXkUslYDmuIoOKoGgoevqZ"
+url = "https://api.discogs.com/database/search?label=giegling&key=#{consumer_key}&secret=#{consumer_secret}"
+
+puts url
 
 buffer = URI.open(url).read
 result = JSON.parse(buffer)['results']

@@ -27,14 +27,9 @@
     </div>
   </div>
 
-    <h3 class="record-show-title box-shadow-3d mt-3">
-      <%= @record.title %>
-    </h3>
-
-    <!-- <%# <p>
-      <strong>Artist:</strong>
-      <%= @record.artist %>
-    </p> %> -->
+  <h3 class="record-show-title box-shadow-3d mt-3">
+    <%= @record.title %>
+  </h3>
 
   <div class="record-show-infos box-shadow-3d">
     <p>
@@ -49,37 +44,35 @@
     <HR>
 
     <h5><strong>Tracklist</strong></h5>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Title</th>
-          <th>Artist</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @tracks.each do |track| %>
-            <td><%= track.position %></td>
-            <td><%= track.title %></td>
-            <td><% @artists.each do |artist| %>
-              <% if artist.id == track.artist_id %>
-                <%= artist.name %>
-              <% end %>
-            <% end %></td>
+    <% if @tracks == [] %>
+      <p>No tracklist availiable.</p>
+    <% else %>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th colspan="3"></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          <% @tracks.each do |track| %>
+              <td><%= track.position %></td>
+              <td><%= track.title %></td>
+              <td><% @artists.each do |artist| %>
+                <% if artist.id == track.artist_id %>
+                  <%= artist.name %>
+                <% end %>
+              <% end %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 
-  <div class="record-show-comment box-shadow-3d">
-    <p>
-      <strong>Comments:</strong>
-      <%= @record.comment %>
-    </p>
-  </div>
 </div>
 
 <!-- Modal -->

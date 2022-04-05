@@ -18,6 +18,7 @@ class RecordsController < ApplicationController
     @tag = Tag.new
     @tracks = Track.where(record_id: @record.id)
     @artists = Artist.where(id: @tracks.pluck(:artist_id))
+
   end
 
   private

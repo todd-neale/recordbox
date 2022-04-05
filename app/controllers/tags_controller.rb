@@ -16,7 +16,7 @@ class TagsController < ApplicationController
         format.json { render :show, status: :created, location: @tag }
       else
         # flash.now[:messages] = @employee.errors.full_messages[0]
-        format.html { redirect_to box_path(params["tag"]["record_id"]), notice: "Record Already in Box!!" }
+        format.html { redirect_back fallback_location: root_path, notice: "Record Already in Box!!" }
       end
     end
   end

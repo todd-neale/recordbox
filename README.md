@@ -1,6 +1,8 @@
-# Recordbox 
+# Recordbox
 
 # 💽🎛💽
+
+- Visit the app here [record-box](https://recordbox-ror.herokuapp.com/)
 
 ## Whats the idea?
 

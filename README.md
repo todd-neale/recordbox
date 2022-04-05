@@ -17,7 +17,7 @@ Some of the features include:
 - Devise
 - API with OpenURI and the discogs API
 - Testing 
-  - System Tests using Capybara
+  - System Tests using MiniTest & Capybara
 
 ## Next Steps
 

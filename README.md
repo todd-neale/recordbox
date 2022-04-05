@@ -18,7 +18,6 @@ Some of the features include:
 - API with OpenURI and the discogs API
 - Testing 
   - System Tests using Capybara
-  - Unit Tests using rspec
 
 ## Next Steps
 

@@ -16,7 +16,7 @@
   <div class="box-card-grid">
     <% @boxes.each do |box| %>
       <div class="box-card box-shadow-3d">
-        <%= image_tag('box-placeholder.jpeg') %>
+        <%= image_tag 'box-placeholder.jpg' %>
         <div class="box-card-info">
           <%= link_to box.name, box_path(current_user.id, box) %>
         </div>

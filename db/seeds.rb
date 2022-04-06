@@ -34,11 +34,11 @@ result.each do |record|
     tracklisturl = "https://api.discogs.com/masters/#{record['master_id']}"
     master = URI.open(tracklisturl).read
     tracklist = JSON.parse(master)['tracklist']
+    Record.create(title: record["title"], image: record["cover_image"], year: record["year"], masterid: record["master_id"], label: record["label"].first)
     tracklist.each do |track|
       Track.create(title: track["title"], position: track["position"], record_id: Record.last.id, artist_id: Artist.last.id)
       puts "Created track: #{track["title"]} - Record: #{Record.last.id} - Artist: #{Artist.last.name}"
     end
-    Record.create(title: record["title"], image: record["cover_image"], year: record["year"], masterid: record["master_id"], label: record["label"].first)
   end  
   puts "Done!"
 end

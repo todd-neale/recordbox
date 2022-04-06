@@ -22,6 +22,11 @@ buffer = URI.open(url).read
 result = JSON.parse(buffer)['results']
 result.each do |record|
   sleep(10)
+  puts record["title"]
+  artist = record["title"].scan(/^(.*?)\-/).flatten.first
+  Artist.create(name: artist)
+  puts "Created artist: #{Artist.last.name}"
+
   puts "Creating - > #{record['title']}"
   if record['master_id'] == 0
     Record.create(title: record["title"], image: record["cover_image"], year: record["year"], masterid: 0, label: record["label"].first)
@@ -30,21 +35,8 @@ result.each do |record|
     master = URI.open(tracklisturl).read
     tracklist = JSON.parse(master)['tracklist']
     tracklist.each do |track|
-      if track["artists"] != nil
-        if Artist.find_by(name: track['artists'].flatten['name']) == nil
-          Artist.create(name: track["artists"].flatten["name"])
-        end
-      end
-      if track["extraartists"] != nil
-        track["extraartists"].each do |artist|
-          if Artist.find_by(name: artist['name']) == nil
-            Artist.new(name: artist["name"]).save
-            puts "Created Artist: #{artist["name"]}"
-          end
-        end
-      end
       Track.create(title: track["title"], position: track["position"], record_id: Record.last.id, artist_id: Artist.last.id)
-      puts "Created track: #{track["title"]} - Record: #{Record.last.id} - Artist: #{Artist.last.id}"
+      puts "Created track: #{track["title"]} - Record: #{Record.last.id} - Artist: #{Artist.last.name}"
     end
     Record.create(title: record["title"], image: record["cover_image"], year: record["year"], masterid: record["master_id"], label: record["label"].first)
   end  

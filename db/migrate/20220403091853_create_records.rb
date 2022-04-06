@@ -4,10 +4,10 @@ class CreateRecords < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :artist
       t.string :year
-      t.string :bpm
-      t.string :key
       t.string :image
       t.string :comment
+      t.string :label
+      t.string :masterid
 
       t.timestamps
     end

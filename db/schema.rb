@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2022_04_03_194022) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "record_id"
-    t.index ["record_id"], name: "index_boxes_on_record_id"
     t.index ["user_id"], name: "index_boxes_on_user_id"
   end
 
@@ -36,15 +34,12 @@ ActiveRecord::Schema.define(version: 2022_04_03_194022) do
     t.string "title"
     t.string "artist"
     t.string "year"
-    t.string "bpm"
-    t.string "key"
     t.string "image"
     t.string "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "label"
     t.string "masterid"
-    t.text "tracklist", default: [], array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|
@@ -79,7 +74,6 @@ ActiveRecord::Schema.define(version: 2022_04_03_194022) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "boxes", "records"
   add_foreign_key "boxes", "users"
   add_foreign_key "tags", "boxes"
   add_foreign_key "tags", "records"

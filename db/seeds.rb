@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'json'
 
+puts "Resetting the database..."
 Box.destroy_all
 puts "Destroying boxes..."
 Track.destroy_all

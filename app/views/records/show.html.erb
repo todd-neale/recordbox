@@ -14,9 +14,11 @@
         <span><i class="fa fa-step-backward" aria-hidden="true"></i></span>
       <% end %>
       <%= image_tag @record.image, class: "record-show-image" %>
-      <a type="button" class="button button--pandora trial" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <span><i class="fa fa-archive" aria-hidden="true"></i></span>
-      </a>
+      <% if user_signed_in? %>
+        <a type="button" class="button button--pandora trial" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <span><i class="fa fa-archive" aria-hidden="true"></i></span>
+        </a>
+      <% end %>
     </div>
     <div class="record-show-top-right">
       <% if @next_record != nil %>

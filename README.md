@@ -2,7 +2,7 @@
 
 # 💽🎛💽
 
-- Visit the app here [record-box](https://recordbox-ror.herokuapp.com/)
+Visit the app here [Recordbox](https://recordbox-ror.herokuapp.com/)
 
 ## Whats the idea?
 
